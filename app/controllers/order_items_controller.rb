@@ -24,7 +24,8 @@ class OrderItemsController < ApplicationController
 
      flash[:success] = "Thanks for updating your cart"
 
-     redirect_to product_path(@product)
+     # redirect_to product_path(@product)
+     redirect_to cart_path
    end
 
    def destroy
