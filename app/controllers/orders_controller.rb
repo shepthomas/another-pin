@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order = Order.new(form_params)
     @order.add_from_cart(@current_cart)
 
-    if @order.save
+    if @order.save_and_charge
       # if order passes validations, great!
       # reset session to clear cart
       reset_session
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def form_params
-    params.require(:order).permit(:first_name, :last_name, :email, :country, :address_1, :address_2, :city, :postal_code)
+    params.require(:order).permit(:first_name, :last_name, :email, :country, :address_1, :address_2, :city, :postal_code, :stripe_token)
   end
 
 end
