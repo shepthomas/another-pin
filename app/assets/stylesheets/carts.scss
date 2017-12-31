@@ -1,3 +1,53 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart {
+  width: 100%;
+  max-width: 1020px;
+
+  thead {
+
+
+    th {
+      text-align: left;
+      font-size: 20px;
+      border-bottom: 1px solid #e1e1e1;
+      padding: 10px;
+      padding-left: 0;
+    }
+
+  }
+
+  tbody {
+
+    td {
+      padding: 10px;
+      padding-left: 0;
+      border-bottom: 1px solid #e1e1e1;
+      
+      &.product {
+        width: 400px;
+
+        img {
+          vertical-align: middle;
+          margin-right: 20px;
+        }
+      }
+
+      &.price {
+        width: 100px;
+      }
+
+      &.quantity {
+        width: 300px;
+
+        .order_item_quantity {
+          display: inline-block;
+        }
+      }
+    }
+
+  }
+
+}

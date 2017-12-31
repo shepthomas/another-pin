@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
   has_many :order_items
-  
+
   mount_uploader :image_1, ProductImageUploader
   mount_uploader :image_2, ProductImageUploader
   mount_uploader :image_3, ProductImageUploader
@@ -12,4 +12,7 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
 
+  def price_in_dollars
+    price / 100
+  end
 end

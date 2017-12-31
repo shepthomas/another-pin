@@ -1,0 +1,12 @@
+<h1>Thank you</h1>
+
+<p>Your order has been received. Please allow 7-10 days for delviery</p>
+
+<p>
+  <%= link_to "Back to home", root_path %>
+</p>
+
+
+<% @order.order_items.each do |item| %>
+  <%= item.product.title %>
+<% end %>
