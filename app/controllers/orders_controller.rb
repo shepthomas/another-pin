@@ -7,13 +7,19 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.add_from_cart(@current_cart)
   end
 
   def create
     @order = Order.new(form_params)
+    @order.add_from_cart(@current_cart)
 
     if @order.save
       # if order passes validations, great!
+      # reset session to clear cart
+      reset_session
+      # show a success message
+      flash[:success] = "Order was successfull"
       # go to a thank you page
       redirect_to order_path(@order)
     else

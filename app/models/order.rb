@@ -9,4 +9,10 @@ class Order < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
 
+  def add_from_cart(cart)
+    cart.order_items.all.each do |item|
+      self.order_items.new(product: item.product, quantity: item.quantity)
+    end
+  end
+
 end
