@@ -53,17 +53,13 @@ class Order < ApplicationRecord
   def total_price
     @total = 0
     order_items.each do |item|
-      @total = @total + item.product.price_in_dollars * item.quantity
+      @total = @total + item.product.price * item.quantity
     end
     @total
   end
 
   def total_price_in_dollars
-    $total = 0
-    order_items.all.each do |item|
-      @total = @total + item.product.price_in_dollars * item.quantity
-    end
-    @total
+    total_price / 100
   end
 
 end

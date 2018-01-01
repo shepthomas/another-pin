@@ -20,6 +20,8 @@ class OrdersController < ApplicationController
       reset_session
       # show a success message
       flash[:success] = "Order was successfull"
+      # send email to customer with this order's receipt
+      OrderMailer.receipt(@order).deliver_now
       # go to a thank you page
       redirect_to order_path(@order)
     else
